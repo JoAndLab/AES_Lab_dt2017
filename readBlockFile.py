@@ -2,14 +2,12 @@
 # -*- coding: utf-8 -*-
 
 
-def getKey(filename):
-    my_key = ''
+def getBlock(filename):
+    my_block = ''
     with open(filename, 'r') as f:
         try:
-            my_key = f.readline()
+            my_block = f.readline()
         except IOError:
             print('Cannot read file')
 
-    return [n for n in bytes.fromhex(my_key)]
-
-
+    return [n for n in bytes.fromhex(my_block)]
