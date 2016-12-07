@@ -16,14 +16,14 @@ def subBytesInv(block):
     return block
 
 
-my_list = [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255]
-
-print(my_list)
-
-x = subBytes(my_list)
-
-print(x)
-
-y = subBytesInv(x)
-
-print(y)
+# my_list = [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255]
+#
+# print(my_list)
+#
+# x = subBytes(my_list)
+#
+# print(x)
+#
+# y = subBytesInv(x)
+#
+# print(y)

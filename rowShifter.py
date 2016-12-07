@@ -25,4 +25,4 @@ def shiftRowsInv(block):
 
 my_list = [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255]
 
-print(shiftRowsInv(my_list))
+print(shiftRows(my_list))
