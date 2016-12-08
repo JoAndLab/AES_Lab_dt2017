@@ -1,21 +1,67 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
-# 1. Läsa in
 import AES256
 import readKeyFile
-from codecs import encode
+import readBlockFile
 
 key = readKeyFile.getKey('testKey.txt')
+filename = 'tWotW_test.txt'
+encrypted_filename = 'encrypted_' + filename
+decrypted_filename = 'decrypted_' + filename
+open(encrypted_filename, 'w').close()
+open(decrypted_filename, 'w').close()
 
-
-def readText():
-    with open('tWotW.txt', mode='rb') as file:
+def readPlainText(filename):
+    with open(filename, mode='rb') as file:
         while file:
-            s = file.read(16).hex()
-            yield [n for n in bytes.fromhex(s)]
+            try:
+                s = file.read(16).hex()
+                if len(s) == 32:
+                    yield [n for n in bytes.fromhex(s)]
+                else:
+                    length = 32 - len(s)
+                    f = 'f' * length
+                    s += f
+                    yield [n for n in bytes.fromhex(s)]
+                    break
+            except IOError as e:
+                print(e)
 
-x = readText()
 
-for i in x:
-    y = AES256.encrypt(i, key)
-    w = ''.join(map(str, y))
-    print(w)
+def writeEncryptedText(block):
+
+    with open(encrypted_filename, mode='at') as file:
+
+        try:
+            file.write(block)
+        except IOError as e:
+            print(e)
+
+def writeDecryptedText(block):
+
+    with open(decrypted_filename, mode='at', encoding='utf-8') as file:
+
+        try:
+            file.write(block)
+        except IOError as e:
+            print(e)
+
+def main():
+
+    x = readPlainText(filename)
+
+    for i in x:
+        y = AES256.encrypt(i, key)
+        z = ''.join([hex(num)[2:] for num in y])
+        writeEncryptedText(z)
+
+    test = readBlockFile.getBlock(encrypted_filename)
+
+    for j in test:
+        a = AES256.decrypt(j, key)
+        b = ''.join([chr(num) for num in a])
+        writeDecryptedText(b)
+
+if __name__ == '__main__':
+    main()
