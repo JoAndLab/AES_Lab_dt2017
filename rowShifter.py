@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 
@@ -23,6 +23,6 @@ def shiftRowsInv(block):
 
 # ex shift right [0, 221, 170, 119, 68, 17, 238, 187, 136, 85, 34, 255, 204, 153, 102, 51]
 
-my_list = [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255]
-
-print(shiftRows(my_list))
+# my_list = [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255]
+#
+# print(shiftRows(my_list))

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import readKeyFile
@@ -38,14 +38,23 @@ def expandKey(key):
     return expanded_key
 
 
+def createRoundKey(expanded_key, n):
+    return expanded_key[(n * 16):(n * 16 + 16)]
+
+
 # _word = [0, 1, 2, 3]
 # _newWord = keyScheduleCore(_word, 1)
 
 # print(_word)
 # print(_newWord)
 
-key = readKeyFile.getKey('testKey.txt')
-
-exKey = expandKey(key)
-print(exKey)
-print(len(exKey))
+# key = readKeyFile.getKey('testKey.txt')
+#
+# exKey = expandKey(key)
+# print(exKey)
+#
+# x0 = createRoundKey(exKey, 0)
+# x14 = createRoundKey(exKey, 14)
+#
+# print(x0)
+# print(x14)

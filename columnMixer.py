@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 from mixColTables import *
@@ -39,14 +39,14 @@ def mixColumnsInv(block):
 
     return block
 
-my_list = [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255]
-
-print(my_list)
-
-x = mixColumns(my_list)
-
-print(x)
-
-y = mixColumnsInv(x)
-
-print(y)
+# my_list = [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255]
+#
+# print(my_list)
+#
+# x = mixColumns(my_list)
+#
+# print(x)
+#
+# y = mixColumnsInv(x)
+#
+# print(y)
