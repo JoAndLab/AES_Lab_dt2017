@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import readKeyFile
-from subBytes import subBytes
 from sbox import *
 
 
@@ -17,27 +16,23 @@ def keyScheduleCore(word, iterator):
 
 def expandKey(key):
     expanded_key = list(key)
-    expanded_key_size = len(expanded_key)
-    current_size = 0
-    n = 0
+    key_size = len(expanded_key)
+    current_size = key_size
     rcon_iteration = 1
-
-    current_size += expanded_key_size
 
     while current_size < 240:
 
         temp = expanded_key[-4:]  # Save the last 4 bytes to temp
 
-        if current_size % expanded_key_size == 0:
+        if current_size % key_size == 0:
             temp = keyScheduleCore(temp, rcon_iteration)  # Perform keyScheduleCore() on last 4 bytes (temp)
             rcon_iteration += 1
 
-        if current_size % expanded_key_size == 16:
+        if current_size % key_size == 16:
             temp = [sbox[i] for i in temp]
 
         for m in range(4):
-            expanded_key.append(temp[m] ^ n)
-            n += 1
+            expanded_key.append(expanded_key[current_size - key_size] ^ temp[m])
             current_size += 1
 
     return expanded_key
