@@ -7,7 +7,7 @@ import readBlockFile
 import re
 
 key = readKeyFile.getKey('testKey.txt')
-filename = 'tWotWNY.txt'
+filename = 'tWotW.txt'
 encrypted_filename = 'encrypted_' + filename
 decrypted_filename = 'decrypted_' + filename
 open(encrypted_filename, 'w').close()
