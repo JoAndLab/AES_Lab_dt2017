@@ -4,7 +4,6 @@
 import AES256
 import readKeyFile
 import readBlockFile
-import re
 
 key = readKeyFile.getKey('testKey.txt')
 filename = 'tWotW.txt'
@@ -64,7 +63,6 @@ def main():
         a = AES256.decrypt(j, key)
 
         b = ''.join([chr(num) for num in a])
-
         b = "".join(i for i in b if ord(i) < 128)
         b = b.replace('tjL', '')
 
