@@ -1,6 +1,26 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+# Checkpoint 4-6
+# by Anders Mellberg Granat & Johnny Gustavsson
+
+# This is the main file for encrypt and decrypt a text file with AES 256 bit.
+
+# AES info
+
+# The Advanced Encryption Standard (AES), also known as Rijndael(its original name),
+# is a specification for the encryption of electronic data established by the
+# U.S. National Institute of Standards and Technology (NIST) in 2001.
+
+# AES is based on a design principle known as a substitution-permutation network,
+# combination of both substitution and permutation, and is fast in both software and hardware.
+# Unlike its predecessor DES, AES does not use a Feistel network. AES is a variant of Rijndael
+# which has a fixed block size of 128 bits, and a key size of 128, 192, or 256 bits. By contrast,
+# the Rijndael specification per se is specified with block and key sizes that may be any multiple
+# of 32 bits, both with a minimum of 128 and a maximum of 256 bits.
+
+# Ref: https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
+
 import readKeyFile
 import readBlockFile
 from keyManager import *
